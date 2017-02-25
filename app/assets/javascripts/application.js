@@ -14,3 +14,35 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $("#generate_team_button").click(function() {
+    console.log('aaa');
+    var team_exist = $('#team_exist').val();
+    if (team_exist === 'empty') {
+      $('#myModal').modal('show');
+      generateTeam(); 
+    } else {
+      $('#myModal2').modal('show');
+    }
+  });
+});
+
+var generateTeam = function() {
+  $.ajax ({
+    type: 'GET',
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    url: "/team/generate_team",
+    success: function(result) {
+      if (!result) {
+        setTimeout(function() { 
+          window.location.reload(true);
+        }, 3000);
+      }
+    }, 
+    error: function(data) {
+    }
+  });
+}

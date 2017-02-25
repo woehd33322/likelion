@@ -1,0 +1,87 @@
+
+<!--<div class="col-md-3 col-xs-3"></div>-->
+<div class="col-md-12 col-xs-12" style="margin-top:60px;" >
+  <center>
+    <h1 class='main-title'>君の team-member 名は</h1>
+    <h5>(너의 팀원 이름은.)</h5>
+    <button onclick="setTimeout(generateTeam(), 9000)" id='generate_team_button' class='generate-team-button btn' data-target="#myModal"><font style="font-size: 20px; color:white;">팀 생성</font></button>
+    <hr>
+  </center>
+</div>
+<!--<div class="col-md-3 col-xs-3"></div>-->
+  <!--<div class="col-md-6 col-xs-6 col-md-offset-3" style="margin-top:20px;">-->
+    
+<!--</div>-->
+
+
+<!--기존 멤버 리스트-->
+<!--동그라미로 표시-->
+<div class='col-md-12 col-xs-12 info'>
+  <div class='row'>
+    <h3><center>기존 멤버의 리스트</center></h3>
+    <div class='col-md-12 col-xs-12'>
+      <center>
+        <div class='member-list'>
+          <% index = 0 %>
+          <% @users.each do |user| %>
+          <% index += 1 %>
+          <div class='circle-div'>
+              <div class='circle'>
+                <span class='round-text name'><%= user.name %></span>
+                <span class='round-text department'><%= user.department %></span>
+              </div>
+            </div>
+            <% if index % 3 == 0 %>
+              <br>
+            <% end %>
+          <% end %>
+        </div>
+      </center>
+    </div>
+  </div>
+</div>
+
+<!--팀 생성 결과-->
+<div class="col-md-12 col-xs-12" style="margin-top:20px; margin-bottom: 60px">
+  <div class='row'>
+    <h3><center>오늘의 식사 팀</center></h3>
+    <center>
+    <div id='result_team' class='member-list2'>
+      <% if @teams.size == 0 %>
+        <input id='team_exist' type='hidden' value='empty'>
+        <h5><center>팀 생성 버튼을 눌러주세요.</center></h5>
+      <% end %>
+      <% @teams.each do |team| %>
+        <div class='team_div'>
+          <% team.UserTeams.each do |userTeam| %>
+            <span class='team-member-text'><%= userTeam.user.name %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    </center>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-left:0px;">
+  <div class="modal-dialog" role="document">
+    <center class="modal-body"><%= image_tag("Loading2.gif", class: 'loading-image') %></center>      
+  </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-sm" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header exist-team-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">알림</h4>
+      </div>
+      <center>
+        <div class="modal-body exist-team-modal-body">
+          <h4>이미 오늘의 팀이 존재합니다~</h4>      
+        </div>
+      </center>
+    </div>
+  </div>
+</div>

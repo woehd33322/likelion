@@ -1,0 +1,125 @@
+
+body { 
+  color: white;
+  background: image-url('background.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.center {
+  text-align: center;
+}
+
+.member-list {
+  display: table;
+}
+
+.member-list2 {
+  // display: table;
+  // background-color: rgba(0, 0, 0, 0.5);
+  // background-color: black;
+  // padding: 10px;
+  // border-radius: 5px;
+  // opacity: 0.5;
+  
+}
+
+.team-member-text {
+  
+  // opacity: 100;
+}
+
+.circle-div {
+  text-align: left;
+  float: left;
+  margin: 3px;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 90px;
+  background-color: orange;
+  text-align: center;
+  display: table-cell;
+  overflow: hidden;
+  vertical-align:middle;
+}
+
+.circle:hover {
+    
+  .name {
+    display: none;
+  }
+  .department {
+    display: inline;
+  }
+
+  background-color: green;
+}
+
+.round-text {
+  font-size: 12px;
+}
+
+.name {
+  display: inline;
+}
+.department {
+  display: none;
+}
+
+.team_div {
+  background-color: rgba(0, 0, 0, 0.5);
+  // background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 20px;
+}
+
+.generate-team-button {
+  color: black;
+}
+
+.info {
+  // border: 2px solid #cacaca;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.exist-team-modal-header {
+  color: black;
+}
+
+.exist-team-modal-body {
+  height: 100px;
+  display: table-cell;
+  vertical-align:middle;
+  color: black;
+}
+
+.member-div {
+  text-align: center;
+}
+
+hr{
+  border-color: black;
+  opacity: 0.4;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.btn{
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px 5px 0px 0px;
+  
+}
+.btn:hover{
+  background-color: rgba(76, 178, 173, 0.3);
+}
+
+.modal-body{
+  opacity: 0.8;
+}

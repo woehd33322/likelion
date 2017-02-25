@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	.tb td {
+        		padding : 100px;
+        	}
+        
+        	.plus {
+        		background-image: url('/img/new_ghost_gray.png');
+        	}
+        	
+        	body{
+        	    background: url(/bg_j.jpg) no-repeat center center fixed; 
+  
+                -webkit-background-size: cover;
+               
+                -moz-background-size: cover;
+               
+                -o-background-size: cover;
+        		background: url(/img/bg_j.jpg) no-repeat center center fixed; 
+        		background-size: cover;
+        	}
+        	.titleImg {
+                text-align: center;
+                margin-top: 230px;
+            }
+            #second {
+                font-size: 2em;
+            }
+        </style>        
+    </head>
+<body onload="timer()"> 
+		<h1 style="text-align: center">Score : <span id="score">0</span> Time: <span id="times">10</span></h1>		
+
+
+<table class="tb" border="1" style="margin-left: auto; margin-right: auto;">
+	<tr>
+		<td class="minus" id="id_1"></td>
+		<td class="minus" id="id_2"></td>
+		<td class="minus" id="id_3"></td>
+	</tr>
+	<tr>
+		<td class="minus" id="id_4"></td>
+		<td class="minus" id="id_5"></td>
+		<td class="minus" id="id_6"></td>
+	</tr>
+	<tr>
+		<td class="minus" id="id_7"></td>
+		<td class="minus" id="id_8"></td>
+		<td class="minus" id="id_9"></td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+	var id_1 = document.getElementById("id_1").addEventListener("click", Score, false);
+	var id_2 = document.getElementById("id_2").addEventListener("click", Score, false);
+	var id_3 = document.getElementById("id_3").addEventListener("click", Score, false);
+	var id_4 = document.getElementById("id_4").addEventListener("click", Score, false);
+	var id_5 = document.getElementById("id_5").addEventListener("click", Score, false);
+	var id_6 = document.getElementById("id_6").addEventListener("click", Score, false);
+	var id_7 = document.getElementById("id_7").addEventListener("click", Score, false);
+	var id_8 = document.getElementById("id_8").addEventListener("click", Score, false);
+	var id_9 = document.getElementById("id_9").addEventListener("click", Score, false);
+	var start = 10; 
+	
+	// for (var i = 0; i < 100; i++) {
+	//     (function(i) {
+	//         setTimeout(ChangePlus, 500*i);
+	//     })(i);
+	// }
+
+	function ChangePlus() {
+		var idNum = Math.floor(Math.random() * 9 + 1);
+	    var targetId = "id_" + idNum;
+	    document.getElementById(targetId).setAttribute("class", "plus");
+	   // setTimeout(ChangeMinus, 100);
+	}
+
+	function ChangeMinus() {
+		var idNum = Math.floor(Math.random()*10);
+    	var targetId = "id_" + idNum;
+    	document.getElementById(targetId).setAttribute("class", "minus");
+	}
+
+	function Score(event) {
+		var score = document.getElementById("score");
+		if (event.target.className == "plus"){
+			event.target.className="minus";
+			score.innerHTML++;
+		}
+
+		else{
+			score.innerHTML--;
+		}
+	}
+	
+    function timer(){ 
+      if(start>=0){ 
+          times.innerHTML=start; 
+          ChangePlus();
+          setTimeout('timer()', 1000); 
+          start--;
+      }
+      else {
+      	var score = document.getElementById("score");
+      	alert("게임이 끝났습니다! 당신의 점수는 " + score.innerHTML + "점 입니다.");
+		javascript:history.back();
+      }
+  }
+  
+  window.addEventListener("load", timer());
+  
+
+</script>
+</body>
+</html>

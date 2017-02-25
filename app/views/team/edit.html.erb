@@ -1,0 +1,17 @@
+<center>
+<div>
+  <h3>멋쟁이 사자처럼 멤버 추가</h3>
+  <%= form_for @user, :url => url_for(:controller => 'team', :action => 'update') do |f| %>
+    <%= f.hidden_field :id, name: 'id', size: 20 %>
+    <div class='input-div'>
+      이름: <%= f.text_field :name, size: 20, :class => 'input-text' %>
+    </div>
+    <div class='input-div'>
+      학과: <%= f.text_field :department, size: 20, :class => 'input-text' %>
+    </div>
+    <div class=''>
+      <%= f.submit '수정', :class => 'input-button' %>
+    </div>
+  <% end %>
+</div>
+</center>
