@@ -375,7 +375,8 @@ section h3.section-subheading {
   font-size: 11px;
 }
 .text-font-very-small {
-  font-size: 6px;
+  margin-bottom: 0;
+  font-size: 10px;
 }
 
 @media (min-width: 767px) {
@@ -387,7 +388,8 @@ section h3.section-subheading {
     font-size: 18px;
   }
   .text-font-very-small {
-    font-size: 6px;
+    margin-bottom: 0;
+    font-size: 10px;
   }
   
   #portfolio .portfolio-item {
