@@ -1,0 +1,131 @@
+
+<style type="text/css">
+  body {
+    color: black;
+    background: url('/assets/bg_j.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .tb td {
+  	padding : 1em;
+  }
+  
+  .plus {
+  	background-image: url('/new_ghost_gray.png');
+  }
+  
+	.tb {
+		text-align: center;
+		margin-left: auto; 
+		margin-right: auto;
+	}
+	.tb td {
+		padding :0px;
+	}
+	.default {
+		width: 13em;
+		height: 13em;
+		background-color: #e6e6e6;
+		border: none;
+	}
+	.focus {
+		background-image: url('/assets/new_ghost_gray.png');
+		background-size: cover;
+		width: 13em;
+		height: 13em;
+		border: none;
+	}
+
+	.status {
+		text-align: center;
+	}
+</style>
+<h1 class="status">Score : <span id="score">0</span> Time: <span id="time">30</span></h1>
+
+<table class="tb" border="1">
+	<tr>
+		<td>
+			<button class="default" id="no0"></button>
+		</td>
+		<td>
+			<button class="default" id="no1"></button>
+		</td>
+		<td>
+			<button class="default" id="no2"></button>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button class="default" id="no3"></button>
+		</td>
+		<td>
+			<button class="default" id="no4"></button>
+		</td>
+		<td>
+			<button class="default" id="no5"></button>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button class="default" id="no6"></button>
+		</td>
+		<td>
+			<button class="default" id="no7"></button>
+		</td>
+		<td>
+			<button class="default" id="no8"></button>
+		</td>
+	</tr>
+</table>
+<script>
+  var seconds = 29;
+	var moleTimer, timer;
+  function startGame() {	
+  		timer = window.setInterval("updateTime()", 1000);
+  		document.addEventListener("click", score, false);
+  		moleTimer = window.setInterval("change()", 500);
+  }
+  
+  function updateTime() {
+  	document.getElementById('time').innerHTML = seconds;
+  	if (seconds > 0) {
+  		--seconds;
+  	} else {
+  		clearInterval(timer);
+  		total = document.getElementById('score').innerHTML;
+  		alert("게임이 끝났습니다! 당신의 점수는 " + total + '점 입니다.');
+  		endGame();
+  	}
+  }
+  
+  function change() {
+  	var set = document.getElementById("no" + parseInt(Math.random() * 9));
+  		set.className = "focus";
+  		setTimeout(function() {
+  			set.className = "default";
+  			if (seconds <= 0)
+  		    clearInterval(moleTimer);
+  		}, 500);
+  		
+  }
+  
+  function endGame() {
+  	location.href='/ready';
+  }
+  
+  function score(e) {
+  	var target = e.target;
+  	var score = document.getElementById('score').innerHTML;
+  	if (target.className == "default") {
+  		document.getElementById('score').innerHTML = --score;
+  	}
+  	else if (target.className == "focus") {
+  		document.getElementById('score').innerHTML = ++score;
+  		target.className = "default";
+  	}
+  }
+  window.addEventListener("load", startGame, false);
+
+</script>

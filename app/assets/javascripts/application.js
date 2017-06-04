@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
 $(document).ready(function() {
+  
   $("#generate_team_button").click(function() {
     console.log('aaa');
     var team_exist = $('#team_exist').val();

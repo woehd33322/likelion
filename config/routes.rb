@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get 'team/edit/:id' => 'team#edit'
   get 'team/delete/:id' => 'team#delete'
   
+  # mole game
+  get '/ready' => 'mole#index'
+  get '/mole' => 'mole#game'
+  
   # resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
