@@ -2,7 +2,7 @@
 <style type="text/css">
   body {
     color: black;
-    background: url('/assets/bg_j.jpg') no-repeat center center fixed; 
+    background: url('/bg_j.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -31,7 +31,7 @@
 		border: none;
 	}
 	.focus {
-		background-image: url('/assets/new_ghost_gray.png');
+		background-image: url('/new_ghost_gray.png');
 		background-size: cover;
 		width: 13em;
 		height: 13em;
@@ -85,7 +85,7 @@
   function startGame() {	
   		timer = window.setInterval("updateTime()", 1000);
   		document.addEventListener("click", score, false);
-  		moleTimer = window.setInterval("change()", 500);
+  		moleTimer = window.setInterval("change()", 700);
   }
   
   function updateTime() {
@@ -107,7 +107,7 @@
   			set.className = "default";
   			if (seconds <= 0)
   		    clearInterval(moleTimer);
-  		}, 500);
+  		}, 700);
   		
   }
   

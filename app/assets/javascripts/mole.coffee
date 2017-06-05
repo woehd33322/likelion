@@ -3,7 +3,7 @@ seconds = 29
 startGame = ->
   timer = window.setInterval('updateTime()', 1000)
   document.addEventListener 'click', score, false
-  moleTimer = window.setInterval('change()', 500)
+  moleTimer = window.setInterval('change()', 700)
   return
 
 updateTime = ->
@@ -24,7 +24,7 @@ change = ->
     if seconds <= 0
       clearInterval(moleTimer)
     return
-  ), 500
+  ), 700
   return
 
 endGame = ->
